@@ -328,7 +328,8 @@ return [
             'config' => [
                 'lang' => 'zh-CN',
                 'height' => 500,
-                'upload' => '/admin/upload',
+                'background' => '#000',
+                'upload' => '/admin/upload/image',
             ]
         ]
     ],

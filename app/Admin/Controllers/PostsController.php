@@ -94,8 +94,6 @@ class PostsController extends Controller
     {
         $show = new Show(Post::findOrFail($id));
 
-
-
         return $show;
     }
 
@@ -110,7 +108,6 @@ class PostsController extends Controller
         $form->text('title', '标题')->rules('required');
         $form->image('cover', '图片')->rules('image');
         $form->notes('content', '内容')->rules('required');
-
         return $form;
     }
 }

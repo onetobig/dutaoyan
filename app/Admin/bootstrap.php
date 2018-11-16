@@ -21,3 +21,4 @@
 Encore\Admin\Form::forget(['map', 'editor']);
 
 Encore\Admin\Form::extend('notes', \App\Admin\Extensions\Summernote::class);
+Encore\Admin\Form::extend('text', \App\Admin\Extensions\Text::class);

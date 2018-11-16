@@ -16,6 +16,7 @@ Route::group([
     $router->post('/posts', 'PostsController@store');
     $router->get('/posts/{id}/edit', 'PostsController@edit');
     $router->put('/posts/{id}', 'PostsController@update');
-    $router->post('/upload', 'UploadsController@store');
+    $router->delete('/posts/{id}', 'PostsController@destroy');
+    $router->post('/upload/image', 'UploadsController@store');
 
 });

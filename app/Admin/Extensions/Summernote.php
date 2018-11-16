@@ -17,6 +17,7 @@ class Summernote extends Field
 
     protected static $css = [
         'vendor/laravel-admin-ext/summernote/dist/summernote.css',
+        'vendor/laravel-admin-ext/summernote/custom.css',
     ];
 
     protected static $js = [
