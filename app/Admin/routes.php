@@ -11,8 +11,11 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index');
-    $router->get('/users', 'UsersController@index');
-    $router->get('/users/create', 'UsersController@create');
-    $router->post('/users', 'UsersController@store');
+    $router->get('/posts', 'PostsController@index');
+    $router->get('/posts/create', 'PostsController@create');
+    $router->post('/posts', 'PostsController@store');
+    $router->get('/posts/{id}/edit', 'PostsController@edit');
+    $router->put('/posts/{id}', 'PostsController@update');
+    $router->post('/upload', 'UploadsController@store');
 
 });

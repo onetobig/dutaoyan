@@ -2,16 +2,15 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\User;
+use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
-use Encore\WangEditor\WangEditor;
 
-class UsersController extends Controller
+class PostsController extends Controller
 {
     use HasResourceActions;
 
@@ -24,8 +23,7 @@ class UsersController extends Controller
     public function index(Content $content)
     {
         return $content
-            ->header('Index')
-            ->description('description')
+            ->header('文章列表')
             ->body($this->grid());
     }
 
@@ -80,16 +78,9 @@ class UsersController extends Controller
      */
     protected function grid()
     {
-        $grid = new Grid(new User);
-
-        $grid->id('Id');
-        $grid->name('Name');
-        $grid->email('Email');
-        $grid->password('Password');
-        $grid->remember_token('Remember token');
-        $grid->created_at('Created at');
-        $grid->updated_at('Updated at');
-
+        $grid = new Grid(new Post);
+        $grid->title('标题');
+        $grid->column('cover', '封面')->image();
         return $grid;
     }
 
@@ -101,15 +92,9 @@ class UsersController extends Controller
      */
     protected function detail($id)
     {
-        $show = new Show(User::findOrFail($id));
+        $show = new Show(Post::findOrFail($id));
 
-        $show->id('Id');
-        $show->name('Name');
-        $show->email('Email');
-        $show->password('Password');
-        $show->remember_token('Remember token');
-        $show->created_at('Created at');
-        $show->updated_at('Updated at');
+
 
         return $show;
     }
@@ -121,12 +106,10 @@ class UsersController extends Controller
      */
     protected function form()
     {
-        $form = new Form(new User);
-
-        $form->text('name', 'Name');
-        $form->email('email', 'Email');
-        $form->password('password', 'Password');
-        $form->editor('remember_token', 'Remember token');
+        $form = new Form(new Post);
+        $form->text('title', '标题')->rules('required');
+        $form->image('cover', '图片')->rules('image');
+        $form->notes('content', '内容')->rules('required');
 
         return $form;
     }
