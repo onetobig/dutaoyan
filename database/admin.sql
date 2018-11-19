@@ -66,6 +66,16 @@ INSERT INTO `admin_roles` VALUES (1,'Administrator','administrator','2018-11-14 
 UNLOCK TABLES;
 
 --
+-- Dumping data for table `admin_role_users`
+--
+
+LOCK TABLES `admin_role_users` WRITE;
+/*!40000 ALTER TABLE `admin_role_users` DISABLE KEYS */;
+INSERT INTO `admin_role_users` VALUES (1,1,NULL,NULL);
+/*!40000 ALTER TABLE `admin_role_users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping data for table `admin_user_permissions`
 --
 
@@ -93,4 +103,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-19  1:53:14
+-- Dump completed on 2018-11-19  1:59:30
