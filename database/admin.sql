@@ -46,6 +46,16 @@ INSERT INTO `admin_role_permissions` VALUES (1,1,NULL,NULL);
 UNLOCK TABLES;
 
 --
+-- Dumping data for table `admin_role_menu`
+--
+
+LOCK TABLES `admin_role_menu` WRITE;
+/*!40000 ALTER TABLE `admin_role_menu` DISABLE KEYS */;
+INSERT INTO `admin_role_menu` VALUES (1,2,NULL,NULL);
+/*!40000 ALTER TABLE `admin_role_menu` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping data for table `admin_roles`
 --
 
@@ -83,4 +93,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-19  1:45:08
+-- Dump completed on 2018-11-19  1:53:14
