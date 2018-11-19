@@ -315,7 +315,7 @@ return [
         'wang-editor' => [
             'enable' => false,
             'config' => [
-                'uploadImgServer' => '/admin/upload',
+                'uploadImgServer' => '/admin/upload/image',
                 'uploadFileName' => 'upload_file[]',
             ]
         ],
