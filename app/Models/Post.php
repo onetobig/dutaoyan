@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Traits\HashIdHelper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class Post extends Model
 {
+    use HashIdHelper;
     protected $fillable = ['title', 'sub', 'cover', 'content', ];
 
     protected $casts = [

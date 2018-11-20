@@ -7,9 +7,7 @@
 				<div class="card-header">
 					<h2 class="text-center">{{ $post->title }}</h2>
 				</div>
-				<div class="text-center" style="max-height:600px;">
-					<img src="{{ $post->cover_url }}" alt="" class="img-thumbnail img-responsive" >
-				</div>
+				<img src="{{ $post->cover_url }}" alt="" class="img-thumbnail img-responsive img-fluid" style="max-height: 100%; width: auto;">
 				
 				<div class="card-body">
 					{!! $post->content !!}
