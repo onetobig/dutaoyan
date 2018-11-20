@@ -1,5 +1,7 @@
 <?php
 
 Auth::routes();
-Route::get('/', 'PagesController@root')->name('home');
+Route::get('posts', 'PostsController@index')->name('posts.index');
+Route::redirect('/', url('posts'));
 
+Route::get('posts/{post}', 'PostsController@show')->name('posts.show');
