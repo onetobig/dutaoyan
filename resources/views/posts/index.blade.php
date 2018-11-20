@@ -12,6 +12,10 @@
 						<a href="{{ route('posts.show', ['post' => $post->id]) }}">
 							<h5 class="mt-0">{{ $post->title }}</h5>
 						</a>
+						{{ $post->excerpt }}
+						<div class="media-bottom float-right">
+							<h5 class="mt-0">{{ $post->published_at ? $post->published_at->diffForHumans() : '' }}</h5>
+						</div>
 					</div>
 				</div>
 			@endforeach

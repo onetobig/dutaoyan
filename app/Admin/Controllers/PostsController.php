@@ -81,6 +81,7 @@ class PostsController extends Controller
         $grid = new Grid(new Post);
         $grid->title('标题');
         $grid->column('cover', '封面')->image();
+        $grid->published_at('发布时间');
         return $grid;
     }
 
@@ -108,6 +109,7 @@ class PostsController extends Controller
         $form->text('title', '标题')->rules('required');
         $form->image('cover', '图片')->rules('image');
         $form->notes('content', '内容')->rules('required');
+        $form->datetime('published_at', '发布时间');
         return $form;
     }
 }

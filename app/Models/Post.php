@@ -9,6 +9,9 @@ class Post extends Model
 {
     protected $fillable = ['title', 'sub', 'cover', 'content', ];
 
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
 
     public function user()
     {
