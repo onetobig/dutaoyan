@@ -27,10 +27,6 @@
 						
 						<span> • </span>
 						
-						<a href="" title="{{ $post->user->name }}">
-							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-							{{ $post->user->name }}
-						</a>
 						
 						<span> • </span>
 						
