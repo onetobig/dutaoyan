@@ -4,7 +4,7 @@
 			<li class="media">
 				<div class="media-left">
 					<a href="{{ route('posts.show', ['post' => $post] )}}">
-						<img src="{{ $post->cover_url }}" alt="" class="media-object img-thumbnail" style="max-width: 252px;" title="{{ $post->user->name }}">
+						<img src="{{ $post->cover_url }}" alt="" class="media-object img-thumbnail" style="max-width: 252px;" title="">
 					</a>
 				</div>
 				
