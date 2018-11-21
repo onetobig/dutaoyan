@@ -28,4 +28,9 @@ class Post extends Model
         }
         return \Storage::disk('public')->url($url);
     }
+
+    public function link()
+    {
+        return route('posts.show', ['post' => $this]);
+    }
 }
