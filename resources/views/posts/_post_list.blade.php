@@ -3,7 +3,7 @@
 		@foreach($posts as $topic)
 			<li class="media">
 				<div class="media-left">
-					<a href="{{ route('users.show', [$topic->user_id] )}}">
+					<a href="{{ route('posts.show', ['post' => $post] )}}">
 						<img src="{{ $topic->cover_url }}" alt="" class="media-object img-thumbnail" style="max-width: 252px;" title="{{ $topic->user->name }}">
 					</a>
 				</div>
