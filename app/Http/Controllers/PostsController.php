@@ -23,6 +23,7 @@ class PostsController extends Controller
 
     public function show(Post $post)
     {
+        visits($post)->increment();
         return view('posts.show', ['post' => $post]);
     }
 }

@@ -34,7 +34,7 @@
 						{{ $post->created_at->diffForHumans() }}
 						.
 						<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-						{{ $post->reply_count }}
+						{{ visits($post)->count() }} 阅读
 					</div>
 					
 					<div class="post-body">
