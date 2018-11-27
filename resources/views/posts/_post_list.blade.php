@@ -1,45 +1,24 @@
 @if(count($posts))
-	<ul class="media-list">
+	<ul class="timeline media-list">
 		@foreach($posts as $post)
-			<li class="media">
-				<div class="media-left">
-					<a href="{{ route('posts.show', ['post' => $post] )}}">
-						<img src="{{ $post->cover_url }}" alt="" class="media-object img-thumbnail" style="max-width: 252px;" title="">
+		<li class="{{ $loop->index % 2 === 0 ? "" : "timeline-inverted" }}">
+			<div class="timeline-badge {{["success", "warning", "info", "danger"][$loop->index % 4]}}">
+				{{ $post->created_at->format("m-d") }}
+			</div>
+			<div class="timeline-panel">
+				<div class="timeline-heading">
+					<a href="{{ route('posts.show', ['post' => $post]) }}">
+						<h4 class="timeline-title">{{ $post->title }}</h4>
+					</a>
+					<span class="text-right">{{ $post->created_at }}</span>
+				</div>
+				<div class="timeline-body">
+					<a href="{{ route('posts.show', ['post' => $post]) }}">
+						<img src="{{ $post->cover_url }}" alt="" class="img-thumbnail">
 					</a>
 				</div>
-				
-				<div class="media-body">
-					<div class="media-heading">
-						<a href="{{ $post->link() }}" title="{{ $post->title }}">
-							{{ $post->title }}
-						</a>
-						
-						<a href="{{ $post->link() }}" class="pull-right">
-							<span class="badge">{{ $post->reply_count }}</span>
-						</a>
-					</div>
-					
-					<div class="media-body meta">
-						{{--<a href="{{ route('categories.show', [$post->category->id]) }}" title="{{ $post->category->name }}">--}}
-							{{--<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>--}}
-							{{--{{ $post->category->name }}--}}
-						{{--</a>--}}
-						
-						<span> • </span>
-						
-						
-						<span> • </span>
-						
-						<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-						<span class="timeago" title="最后活跃于">{{ $post->updated_at->diffForHumans() }}</span>
-					</div>
-				</div>
-			</li>
-			
-			@if ( ! $loop->last)
-				<hr>
-			@endif
-			
+			</div>
+		</li>
 		@endforeach
 	</ul>
 @else

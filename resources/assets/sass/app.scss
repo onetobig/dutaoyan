@@ -155,6 +155,8 @@ body {
 /* Topic Show Page */
 @import "topic_body";
 
+@import "timeline";
+
 .topic-show-page {
   .panel {
     padding: 15px;
@@ -217,3 +219,4 @@ body {
     }
   }
 }
+
