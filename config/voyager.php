@@ -210,6 +210,7 @@ return [
 
     'additional_js' => [
         //'js/custom.js',
+        '/js/tinymace.js',
     ],
 
     'googlemaps' => [
