@@ -15,6 +15,6 @@ class PostService
 {
     public function index()
     {
-        return Post::query()->paginate(16);
+        return Post::query()->orderby('id', 'desc')->paginate(16);
     }
 }
