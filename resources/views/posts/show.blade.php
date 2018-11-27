@@ -21,11 +21,11 @@
 					</div>
 					
 					<div class="post-body">
-						<img src="{{ $post->cover_url }}" class="img-thumbnail">
+						@if($post->cover)
+							<img src="{{ $post->cover_url }}" class="img-thumbnail">
+						@endif
 						<hr>
-						<div class="container">
-							{!! $post->content !!}
-						</div>
+							{!! $post->body !!}
 					</div>
 					
 					@can('update', $post)
