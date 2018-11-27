@@ -39,7 +39,10 @@
 					
 					<div class="post-body">
 						<img src="{{ $post->cover_url }}" class="img-thumbnail">
-						{!! $post->content !!}
+						<hr>
+						<div class="container">
+							{!! $post->content !!}
+						</div>
 					</div>
 					
 					@can('update', $post)
@@ -55,7 +58,6 @@
 								<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
 								删除
 							</button>
-							
 						</form>
 					</div>
 					@endcan
