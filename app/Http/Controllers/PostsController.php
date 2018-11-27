@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Services\PostService;
 use Illuminate\Http\Request;
+use TCG\Voyager\Models\Category;
 
 class PostsController extends Controller
 {
@@ -15,9 +16,14 @@ class PostsController extends Controller
         $this->service = $service;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $posts = $this->service->index();
+        $category = null;
+        if ($request->input('category')) {
+            $category = Category::find($request->input('category'));
+        }
+
+        $posts = $this->service->index($category);
         return view('posts.index', ['posts' => $posts]);
     }
 

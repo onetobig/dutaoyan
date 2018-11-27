@@ -1,4 +1,4 @@
-@if(count($posts))
+@if($posts && ($posts->count() > 0))
 	<ul class="timeline media-list">
 		@foreach($posts as $post)
 		<li class="{{ $loop->index % 2 === 0 ? "" : "timeline-inverted" }}">

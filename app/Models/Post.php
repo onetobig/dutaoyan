@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Traits\HashIdHelper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use TCG\Voyager\Models\Category;
 
 class Post extends Model
 {
@@ -32,5 +33,10 @@ class Post extends Model
     public function link()
     {
         return route('posts.show', ['post' => $this]);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

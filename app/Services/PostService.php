@@ -10,11 +10,16 @@ namespace App\Services;
 
 
 use App\Models\Post;
+use TCG\Voyager\Models\Category;
 
 class PostService
 {
-    public function index()
+    public function index($category)
     {
-        return Post::query()->orderby('id', 'desc')->paginate(16);
+        $query = Post::query()->with(['category'])->orderby('id', 'desc');
+        if ($category) {
+            $query->where('category_id', $category->id);
+        }
+        return $query->paginate(16);
     }
 }
