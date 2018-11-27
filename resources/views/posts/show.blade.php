@@ -6,23 +6,6 @@
 @section('content')
 	
 	<div class="row">
-		
-		<div class="col-lg-3 col-md-3 hidden-sm hidden-xs author-info">
-			<div class="panel panel-default">
-				<div class="panel-body">
-{{--					作者：{{ $post->user->name }}--}}
-				</div>
-				<hr>
-				<div class="media">
-					<div align="center">
-{{--						<a href="{{ route('users.show', $post->user->id) }}">--}}
-{{--							<img src="{{ $post->user->avatar }}" alt="" class="thumbnail img-responsive" width="300px" height="300px">--}}
-						{{--</a>--}}
-					</div>
-				</div>
-			</div>
-		</div>
-		
 		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 post-content">
 			<div class="panel panel-default">
 				<div class="panel-body">
@@ -70,7 +53,21 @@
 				</div>
 			</div>
 		</div>
-		
+		<div class="col-lg-3 col-md-3 hidden-sm hidden-xs author-info">
+			<div class="panel panel-default">
+				<div class="panel-body">
+{{--					作者：{{ $post->user->name }}--}}
+				</div>
+				<hr>
+				<div class="media">
+					<div align="center">
+{{--						<a href="{{ route('users.show', $post->user->id) }}">--}}
+{{--							<img src="{{ $post->user->avatar }}" alt="" class="thumbnail img-responsive" width="300px" height="300px">--}}
+						{{--</a>--}}
+					</div>
+				</div>
+			</div>
+		</div>
 		
 	</div>
 
