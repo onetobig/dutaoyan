@@ -4,7 +4,7 @@
 @section('description', $post->excerpt)
 
 @section('content')
-	
+
 	<div class="row">
 		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 post-content">
 			<div class="panel panel-default">
@@ -12,22 +12,21 @@
 					<h1 class="text-center">
 						{{ $post->title }}
 					</h1>
-					
+
 					<div class="article-meta text-center">
 						{{ $post->created_at->diffForHumans() }}
 						.
 						<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
 						{{ visits($post)->count() }} 阅读
 					</div>
-					
+
 					<div class="post-body">
-						@if($post->cover)
-							<img src="{{ $post->cover_url }}" class="img-thumbnail">
+						@if($post->image)
 						@endif
 						<hr>
 							{!! $post->body !!}
 					</div>
-					
+
 					@can('update', $post)
 					<div class="operate">
 						<hr>
@@ -46,7 +45,7 @@
 					@endcan
 				</div>
 			</div>
-			
+
 			{{--用户回复列表--}}
 			<div class="panel panel-default post-reply">
 				<div class="panel-body">
@@ -68,7 +67,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 
 @endsection

@@ -13,9 +13,11 @@
 					<span class="text-right">{{ $post->created_at }}</span>
 				</div>
 				<div class="timeline-body">
+                    @if ($post->image)
 					<a href="{{ route('posts.show', ['post' => $post]) }}">
 						<img src="{{ $post->cover_url }}" alt="" class="img-thumbnail">
 					</a>
+                    @endif
 				</div>
 			</div>
 		</li>
