@@ -22,7 +22,7 @@ class Post extends Model
 
     public function getCoverUrlAttribute()
     {
-        $url = $this->attributes['cover'];
+        $url = $this->attributes['image'];
         if (Str::startsWith($url, ['http://', 'https://'])) {
             return $url;
         }

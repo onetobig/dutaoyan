@@ -5,3 +5,8 @@ Route::get('posts', 'PostsController@index')->name('posts.index');
 Route::redirect('/', url('posts'));
 
 Route::get('posts/{post}', 'PostsController@show')->name('posts.show');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

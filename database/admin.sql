@@ -16,82 +16,142 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping data for table `admin_menu`
+-- Dumping data for table `categories`
 --
 
-LOCK TABLES `admin_menu` WRITE;
-/*!40000 ALTER TABLE `admin_menu` DISABLE KEYS */;
-INSERT INTO `admin_menu` VALUES (1,0,1,'首页','fa-bar-chart','/',NULL,NULL,'2018-11-14 12:42:40'),(2,0,3,'系统管理','fa-tasks',NULL,NULL,NULL,'2018-11-16 15:48:08'),(3,2,4,'管理员','fa-users','auth/users',NULL,NULL,'2018-11-16 15:48:08'),(4,2,5,'角色','fa-user','auth/roles',NULL,NULL,'2018-11-16 15:48:08'),(5,2,6,'权限','fa-ban','auth/permissions',NULL,NULL,'2018-11-16 15:48:08'),(6,2,7,'菜单','fa-bars','auth/menu',NULL,NULL,'2018-11-16 15:48:08'),(7,2,8,'操作日志','fa-history','auth/logs',NULL,NULL,'2018-11-16 15:48:08'),(8,0,2,'文章','fa-newspaper-o','/posts',NULL,'2018-11-16 15:48:03','2018-11-16 15:48:08');
-/*!40000 ALTER TABLE `admin_menu` ENABLE KEYS */;
+LOCK TABLES `categories` WRITE;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO `categories` VALUES (1,NULL,1,'Category 1','category-1','2018-11-27 10:21:33','2018-11-27 10:21:33'),(2,NULL,1,'Category 2','category-2','2018-11-27 10:21:33','2018-11-27 10:21:33');
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping data for table `admin_permissions`
+-- Dumping data for table `data_rows`
 --
 
-LOCK TABLES `admin_permissions` WRITE;
-/*!40000 ALTER TABLE `admin_permissions` DISABLE KEYS */;
-INSERT INTO `admin_permissions` VALUES (1,'All permission','*','','*',NULL,NULL),(2,'Dashboard','dashboard','GET','/',NULL,NULL),(3,'Login','auth.login','','/auth/login\r\n/auth/logout',NULL,NULL),(4,'User setting','auth.setting','GET,PUT','/auth/setting',NULL,NULL),(5,'Auth management','auth.management','','/auth/roles\r\n/auth/permissions\r\n/auth/menu\r\n/auth/logs',NULL,NULL);
-/*!40000 ALTER TABLE `admin_permissions` ENABLE KEYS */;
+LOCK TABLES `data_rows` WRITE;
+/*!40000 ALTER TABLE `data_rows` DISABLE KEYS */;
+INSERT INTO `data_rows` VALUES (1,1,'id','number','ID',1,0,0,0,0,0,NULL,1),(2,1,'name','text','名称',1,1,1,1,1,1,NULL,2),(3,1,'email','text','Email',1,1,1,1,1,1,NULL,3),(4,1,'password','password','密码',1,0,0,1,1,0,NULL,4),(5,1,'remember_token','text','Remember Token',0,0,0,0,0,0,NULL,5),(6,1,'created_at','timestamp','创建于',0,1,1,0,0,0,NULL,6),(7,1,'updated_at','timestamp','创建于',0,0,0,0,0,0,NULL,7),(8,1,'avatar','image','头像',0,1,1,1,1,1,NULL,8),(9,1,'user_belongsto_role_relationship','relationship','角色',0,1,1,1,1,0,'{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":0}',10),(10,1,'user_belongstomany_role_relationship','relationship','Roles',0,1,1,1,1,0,'{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"user_roles\",\"pivot\":\"1\",\"taggable\":\"0\"}',11),(11,1,'locale','text','语言',0,1,1,1,1,0,NULL,12),(12,1,'settings','hidden','Settings',0,0,0,0,0,0,NULL,12),(13,2,'id','number','ID',1,0,0,0,0,0,NULL,1),(14,2,'name','text','名称',1,1,1,1,1,1,NULL,2),(15,2,'created_at','timestamp','创建于',0,0,0,0,0,0,NULL,3),(16,2,'updated_at','timestamp','创建于',0,0,0,0,0,0,NULL,4),(17,3,'id','number','ID',1,0,0,0,0,0,NULL,1),(18,3,'name','text','名称',1,1,1,1,1,1,NULL,2),(19,3,'created_at','timestamp','创建于',0,0,0,0,0,0,NULL,3),(20,3,'updated_at','timestamp','创建于',0,0,0,0,0,0,NULL,4),(21,3,'display_name','text','显示名称',1,1,1,1,1,1,NULL,5),(22,1,'role_id','text','角色',1,1,1,1,1,1,NULL,9),(23,4,'id','number','ID',1,0,0,0,0,0,NULL,1),(24,4,'parent_id','select_dropdown','父',0,0,1,1,1,1,'{\"default\":\"\",\"null\":\"\",\"options\":{\"\":\"-- None --\"},\"relationship\":{\"key\":\"id\",\"label\":\"name\"}}',2),(25,4,'order','text','排序',1,1,1,1,1,1,'{\"default\":1}',3),(26,4,'name','text','名称',1,1,1,1,1,1,NULL,4),(27,4,'slug','text','别名',1,1,1,1,1,1,'{\"slugify\":{\"origin\":\"name\"}}',5),(28,4,'created_at','timestamp','创建于',0,0,1,0,0,0,NULL,6),(29,4,'updated_at','timestamp','更新于',0,0,0,0,0,0,NULL,7),(30,5,'id','number','ID',1,0,0,0,0,0,NULL,1),(31,5,'author_id','text','作者',1,0,1,1,0,1,NULL,2),(32,5,'category_id','text','分类目录',1,0,1,1,1,0,NULL,3),(33,5,'title','text','标题',1,1,1,1,1,1,NULL,4),(34,5,'excerpt','text_area','摘要',1,0,1,1,1,1,NULL,5),(35,5,'body','rich_text_box','主体内容',1,0,1,1,1,1,NULL,6),(36,5,'image','image','文章图像',0,1,1,1,1,1,'{\"resize\":{\"width\":\"1000\",\"height\":\"null\"},\"quality\":\"70%\",\"upsize\":true,\"thumbnails\":[{\"name\":\"medium\",\"scale\":\"50%\"},{\"name\":\"small\",\"scale\":\"25%\"},{\"name\":\"cropped\",\"crop\":{\"width\":\"300\",\"height\":\"250\"}}]}',7),(37,5,'slug','text','别名',1,0,1,1,1,1,'{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true},\"validation\":{\"rule\":\"unique:posts,slug\"}}',8),(38,5,'meta_description','text_area','Meta Description',1,0,1,1,1,1,NULL,9),(39,5,'meta_keywords','text_area','Meta Keywords',1,0,1,1,1,1,NULL,10),(40,5,'status','select_dropdown','状态',1,1,1,1,1,1,'{\"default\":\"DRAFT\",\"options\":{\"PUBLISHED\":\"published\",\"DRAFT\":\"draft\",\"PENDING\":\"pending\"}}',11),(41,5,'created_at','timestamp','创建于',0,1,1,0,0,0,NULL,12),(42,5,'updated_at','timestamp','更新于',0,0,0,0,0,0,NULL,13),(43,5,'seo_title','text','SEO Title',0,1,1,1,1,1,NULL,14),(44,5,'featured','checkbox','特色',1,1,1,1,1,1,NULL,15),(45,6,'id','number','ID',1,0,0,0,0,0,NULL,1),(46,6,'author_id','text','作者',1,0,0,0,0,0,NULL,2),(47,6,'title','text','标题',1,1,1,1,1,1,NULL,3),(48,6,'excerpt','text_area','摘要',1,0,1,1,1,1,NULL,4),(49,6,'body','rich_text_box','主体内容',1,0,1,1,1,1,NULL,5),(50,6,'slug','text','别名',1,0,1,1,1,1,'{\"slugify\":{\"origin\":\"title\"},\"validation\":{\"rule\":\"unique:pages,slug\"}}',6),(51,6,'meta_description','text','Meta Description',1,0,1,1,1,1,NULL,7),(52,6,'meta_keywords','text','Meta Keywords',1,0,1,1,1,1,NULL,8),(53,6,'status','select_dropdown','状态',1,1,1,1,1,1,'{\"default\":\"INACTIVE\",\"options\":{\"INACTIVE\":\"INACTIVE\",\"ACTIVE\":\"ACTIVE\"}}',9),(54,6,'created_at','timestamp','创建于',1,1,1,0,0,0,NULL,10),(55,6,'updated_at','timestamp','更新于',1,0,0,0,0,0,NULL,11),(56,6,'image','image','文章图像',0,1,1,1,1,1,NULL,12);
+/*!40000 ALTER TABLE `data_rows` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping data for table `admin_role_permissions`
+-- Dumping data for table `data_types`
 --
 
-LOCK TABLES `admin_role_permissions` WRITE;
-/*!40000 ALTER TABLE `admin_role_permissions` DISABLE KEYS */;
-INSERT INTO `admin_role_permissions` VALUES (1,1,NULL,NULL);
-/*!40000 ALTER TABLE `admin_role_permissions` ENABLE KEYS */;
+LOCK TABLES `data_types` WRITE;
+/*!40000 ALTER TABLE `data_types` DISABLE KEYS */;
+INSERT INTO `data_types` VALUES (1,'users','users','用户','用户','voyager-person','TCG\\Voyager\\Models\\User','TCG\\Voyager\\Policies\\UserPolicy','','',1,0,NULL,'2018-11-27 10:21:32','2018-11-27 10:21:32'),(2,'menus','menus','菜单','菜单','voyager-list','TCG\\Voyager\\Models\\Menu',NULL,'','',1,0,NULL,'2018-11-27 10:21:32','2018-11-27 10:21:32'),(3,'roles','roles','角色','角色','voyager-lock','TCG\\Voyager\\Models\\Role',NULL,'','',1,0,NULL,'2018-11-27 10:21:32','2018-11-27 10:21:32'),(4,'categories','categories','分类','分类','voyager-categories','TCG\\Voyager\\Models\\Category',NULL,'','',1,0,NULL,'2018-11-27 10:21:33','2018-11-27 10:21:33'),(5,'posts','posts','文章','文章','voyager-news','TCG\\Voyager\\Models\\Post','TCG\\Voyager\\Policies\\PostPolicy','','',1,0,NULL,'2018-11-27 10:21:33','2018-11-27 10:21:33'),(6,'pages','pages','页面','页面','voyager-file-text','TCG\\Voyager\\Models\\Page',NULL,'','',1,0,NULL,'2018-11-27 10:21:33','2018-11-27 10:21:33');
+/*!40000 ALTER TABLE `data_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping data for table `admin_role_menu`
+-- Dumping data for table `menu_items`
 --
 
-LOCK TABLES `admin_role_menu` WRITE;
-/*!40000 ALTER TABLE `admin_role_menu` DISABLE KEYS */;
-INSERT INTO `admin_role_menu` VALUES (1,2,NULL,NULL);
-/*!40000 ALTER TABLE `admin_role_menu` ENABLE KEYS */;
+LOCK TABLES `menu_items` WRITE;
+/*!40000 ALTER TABLE `menu_items` DISABLE KEYS */;
+INSERT INTO `menu_items` VALUES (1,1,'控制面板','','_self','voyager-boat',NULL,NULL,1,'2018-11-27 10:21:33','2018-11-27 10:21:33','voyager.dashboard',NULL),(2,1,'媒体','','_self','voyager-images',NULL,NULL,5,'2018-11-27 10:21:33','2018-11-27 10:21:33','voyager.media.index',NULL),(3,1,'用户','','_self','voyager-person',NULL,NULL,3,'2018-11-27 10:21:33','2018-11-27 10:21:33','voyager.users.index',NULL),(4,1,'角色','','_self','voyager-lock',NULL,NULL,2,'2018-11-27 10:21:33','2018-11-27 10:21:33','voyager.roles.index',NULL),(5,1,'工具','','_self','voyager-tools',NULL,NULL,9,'2018-11-27 10:21:33','2018-11-27 10:21:33',NULL,NULL),(6,1,'菜单管理','','_self','voyager-list',NULL,5,10,'2018-11-27 10:21:33','2018-11-27 10:21:33','voyager.menus.index',NULL),(7,1,'数据库','','_self','voyager-data',NULL,5,11,'2018-11-27 10:21:33','2018-11-27 10:21:33','voyager.database.index',NULL),(8,1,'指南针','','_self','voyager-compass',NULL,5,12,'2018-11-27 10:21:33','2018-11-27 10:21:33','voyager.compass.index',NULL),(9,1,'BREAD','','_self','voyager-bread',NULL,5,13,'2018-11-27 10:21:33','2018-11-27 10:21:33','voyager.bread.index',NULL),(10,1,'设置','','_self','voyager-settings',NULL,NULL,14,'2018-11-27 10:21:33','2018-11-27 10:21:33','voyager.settings.index',NULL),(11,1,'分类','','_self','voyager-categories',NULL,NULL,8,'2018-11-27 10:21:33','2018-11-27 10:21:33','voyager.categories.index',NULL),(12,1,'文章','','_self','voyager-news',NULL,NULL,6,'2018-11-27 10:21:33','2018-11-27 10:21:33','voyager.posts.index',NULL),(13,1,'页面','','_self','voyager-file-text',NULL,NULL,7,'2018-11-27 10:21:33','2018-11-27 10:21:33','voyager.pages.index',NULL),(14,1,'Hooks','','_self','voyager-hook',NULL,5,13,'2018-11-27 10:21:33','2018-11-27 10:21:33','voyager.hooks',NULL),(15,2,'文章','','_self',NULL,'#000000',NULL,15,'2018-11-27 10:37:57','2018-11-27 10:37:57','posts.index',NULL);
+/*!40000 ALTER TABLE `menu_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping data for table `admin_roles`
+-- Dumping data for table `menus`
 --
 
-LOCK TABLES `admin_roles` WRITE;
-/*!40000 ALTER TABLE `admin_roles` DISABLE KEYS */;
-INSERT INTO `admin_roles` VALUES (1,'Administrator','administrator','2018-11-14 12:41:24','2018-11-14 12:41:24');
-/*!40000 ALTER TABLE `admin_roles` ENABLE KEYS */;
+LOCK TABLES `menus` WRITE;
+/*!40000 ALTER TABLE `menus` DISABLE KEYS */;
+INSERT INTO `menus` VALUES (1,'admin','2018-11-27 10:21:33','2018-11-27 10:21:33'),(2,'front','2018-11-27 10:37:10','2018-11-27 10:38:47');
+/*!40000 ALTER TABLE `menus` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping data for table `admin_role_users`
+-- Dumping data for table `pages`
 --
 
-LOCK TABLES `admin_role_users` WRITE;
-/*!40000 ALTER TABLE `admin_role_users` DISABLE KEYS */;
-INSERT INTO `admin_role_users` VALUES (1,1,NULL,NULL);
-/*!40000 ALTER TABLE `admin_role_users` ENABLE KEYS */;
+LOCK TABLES `pages` WRITE;
+/*!40000 ALTER TABLE `pages` DISABLE KEYS */;
+INSERT INTO `pages` VALUES (1,0,'Hello World','Hang the jib grog grog blossom grapple dance the hempen jig gangway pressgang bilge rat to go on account lugger. Nelsons folly gabion line draught scallywag fire ship gaff fluke fathom case shot. Sea Legs bilge rat sloop matey gabion long clothes run a shot across the bow Gold Road cog league.','<p>Hello World. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>\n<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>','pages/page1.jpg','hello-world','Yar Meta Description','Keyword1, Keyword2','ACTIVE','2018-11-27 10:21:33','2018-11-27 10:21:33');
+/*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping data for table `admin_user_permissions`
+-- Dumping data for table `permission_role`
 --
 
-LOCK TABLES `admin_user_permissions` WRITE;
-/*!40000 ALTER TABLE `admin_user_permissions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `admin_user_permissions` ENABLE KEYS */;
+LOCK TABLES `permission_role` WRITE;
+/*!40000 ALTER TABLE `permission_role` DISABLE KEYS */;
+INSERT INTO `permission_role` VALUES (1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(7,1),(8,1),(9,1),(10,1),(11,1),(12,1),(13,1),(14,1),(15,1),(16,1),(17,1),(18,1),(19,1),(20,1),(21,1),(22,1),(23,1),(24,1),(25,1),(26,1),(27,1),(28,1),(29,1),(30,1),(31,1),(32,1),(33,1),(34,1),(35,1),(36,1),(37,1),(38,1),(39,1),(40,1);
+/*!40000 ALTER TABLE `permission_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping data for table `admin_users`
+-- Dumping data for table `permissions`
 --
 
-LOCK TABLES `admin_users` WRITE;
-/*!40000 ALTER TABLE `admin_users` DISABLE KEYS */;
-INSERT INTO `admin_users` VALUES (1,'admin','$2y$10$CUgugmHLSpQ6GkLtsPLDV.NEGPgfbkxkKYU7r522G8jg58RGYQpdO','Administrator',NULL,NULL,'2018-11-14 12:41:24','2018-11-14 12:41:24');
-/*!40000 ALTER TABLE `admin_users` ENABLE KEYS */;
+LOCK TABLES `permissions` WRITE;
+/*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
+INSERT INTO `permissions` VALUES (1,'browse_admin',NULL,'2018-11-27 10:21:33','2018-11-27 10:21:33'),(2,'browse_bread',NULL,'2018-11-27 10:21:33','2018-11-27 10:21:33'),(3,'browse_database',NULL,'2018-11-27 10:21:33','2018-11-27 10:21:33'),(4,'browse_media',NULL,'2018-11-27 10:21:33','2018-11-27 10:21:33'),(5,'browse_compass',NULL,'2018-11-27 10:21:33','2018-11-27 10:21:33'),(6,'browse_menus','menus','2018-11-27 10:21:33','2018-11-27 10:21:33'),(7,'read_menus','menus','2018-11-27 10:21:33','2018-11-27 10:21:33'),(8,'edit_menus','menus','2018-11-27 10:21:33','2018-11-27 10:21:33'),(9,'add_menus','menus','2018-11-27 10:21:33','2018-11-27 10:21:33'),(10,'delete_menus','menus','2018-11-27 10:21:33','2018-11-27 10:21:33'),(11,'browse_roles','roles','2018-11-27 10:21:33','2018-11-27 10:21:33'),(12,'read_roles','roles','2018-11-27 10:21:33','2018-11-27 10:21:33'),(13,'edit_roles','roles','2018-11-27 10:21:33','2018-11-27 10:21:33'),(14,'add_roles','roles','2018-11-27 10:21:33','2018-11-27 10:21:33'),(15,'delete_roles','roles','2018-11-27 10:21:33','2018-11-27 10:21:33'),(16,'browse_users','users','2018-11-27 10:21:33','2018-11-27 10:21:33'),(17,'read_users','users','2018-11-27 10:21:33','2018-11-27 10:21:33'),(18,'edit_users','users','2018-11-27 10:21:33','2018-11-27 10:21:33'),(19,'add_users','users','2018-11-27 10:21:33','2018-11-27 10:21:33'),(20,'delete_users','users','2018-11-27 10:21:33','2018-11-27 10:21:33'),(21,'browse_settings','settings','2018-11-27 10:21:33','2018-11-27 10:21:33'),(22,'read_settings','settings','2018-11-27 10:21:33','2018-11-27 10:21:33'),(23,'edit_settings','settings','2018-11-27 10:21:33','2018-11-27 10:21:33'),(24,'add_settings','settings','2018-11-27 10:21:33','2018-11-27 10:21:33'),(25,'delete_settings','settings','2018-11-27 10:21:33','2018-11-27 10:21:33'),(26,'browse_categories','categories','2018-11-27 10:21:33','2018-11-27 10:21:33'),(27,'read_categories','categories','2018-11-27 10:21:33','2018-11-27 10:21:33'),(28,'edit_categories','categories','2018-11-27 10:21:33','2018-11-27 10:21:33'),(29,'add_categories','categories','2018-11-27 10:21:33','2018-11-27 10:21:33'),(30,'delete_categories','categories','2018-11-27 10:21:33','2018-11-27 10:21:33'),(31,'browse_posts','posts','2018-11-27 10:21:33','2018-11-27 10:21:33'),(32,'read_posts','posts','2018-11-27 10:21:33','2018-11-27 10:21:33'),(33,'edit_posts','posts','2018-11-27 10:21:33','2018-11-27 10:21:33'),(34,'add_posts','posts','2018-11-27 10:21:33','2018-11-27 10:21:33'),(35,'delete_posts','posts','2018-11-27 10:21:33','2018-11-27 10:21:33'),(36,'browse_pages','pages','2018-11-27 10:21:33','2018-11-27 10:21:33'),(37,'read_pages','pages','2018-11-27 10:21:33','2018-11-27 10:21:33'),(38,'edit_pages','pages','2018-11-27 10:21:33','2018-11-27 10:21:33'),(39,'add_pages','pages','2018-11-27 10:21:33','2018-11-27 10:21:33'),(40,'delete_pages','pages','2018-11-27 10:21:33','2018-11-27 10:21:33'),(41,'browse_hooks',NULL,'2018-11-27 10:21:33','2018-11-27 10:21:33');
+/*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `posts`
+--
+
+LOCK TABLES `posts` WRITE;
+/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+INSERT INTO `posts` VALUES (1,0,NULL,'Lorem Ipsum Post',NULL,'This is the excerpt for the Lorem Ipsum Post','<p>This is the body of the lorem ipsum post</p>','posts/post1.jpg','lorem-ipsum-post','This is the meta description','keyword1, keyword2, keyword3','PUBLISHED',0,'2018-11-27 10:21:33','2018-11-27 10:21:33'),(2,0,NULL,'My Sample Post',NULL,'This is the excerpt for the sample Post','<p>This is the body for the sample post, which includes the body.</p>\n                <h2>We can use all kinds of format!</h2>\n                <p>And include a bunch of other stuff.</p>','posts/post2.jpg','my-sample-post','Meta Description for sample post','keyword1, keyword2, keyword3','PUBLISHED',0,'2018-11-27 10:21:33','2018-11-27 10:21:33'),(3,0,NULL,'Latest Post',NULL,'This is the excerpt for the latest post','<p>This is the body for the latest post</p>','posts/post3.jpg','latest-post','This is the meta description','keyword1, keyword2, keyword3','PUBLISHED',0,'2018-11-27 10:21:33','2018-11-27 10:21:33'),(4,0,NULL,'Yarr Post',NULL,'Reef sails nipperkin bring a spring upon her cable coffer jury mast spike marooned Pieces of Eight poop deck pillage. Clipper driver coxswain galleon hempen halter come about pressgang gangplank boatswain swing the lead. Nipperkin yard skysail swab lanyard Blimey bilge water ho quarter Buccaneer.','<p>Swab deadlights Buccaneer fire ship square-rigged dance the hempen jig weigh anchor cackle fruit grog furl. Crack Jennys tea cup chase guns pressgang hearties spirits hogshead Gold Road six pounders fathom measured fer yer chains. Main sheet provost come about trysail barkadeer crimp scuttle mizzenmast brig plunder.</p>\n<p>Mizzen league keelhaul galleon tender cog chase Barbary Coast doubloon crack Jennys tea cup. Blow the man down lugsail fire ship pinnace cackle fruit line warp Admiral of the Black strike colors doubloon. Tackle Jack Ketch come about crimp rum draft scuppers run a shot across the bow haul wind maroon.</p>\n<p>Interloper heave down list driver pressgang holystone scuppers tackle scallywag bilged on her anchor. Jack Tar interloper draught grapple mizzenmast hulk knave cable transom hogshead. Gaff pillage to go on account grog aft chase guns piracy yardarm knave clap of thunder.</p>','posts/post4.jpg','yarr-post','this be a meta descript','keyword1, keyword2, keyword3','PUBLISHED',0,'2018-11-27 10:21:33','2018-11-27 10:21:33');
+/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `roles`
+--
+
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'admin','Administrator','2018-11-27 10:21:33','2018-11-27 10:21:33'),(2,'user','Normal User','2018-11-27 10:21:33','2018-11-27 10:21:33');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `settings`
+--
+
+LOCK TABLES `settings` WRITE;
+/*!40000 ALTER TABLE `settings` DISABLE KEYS */;
+INSERT INTO `settings` VALUES (1,'site.title','Site Title','Site Title','','text',1,'Site'),(2,'site.description','Site Description','Site Description','','text',2,'Site'),(3,'site.logo','Site Logo','','','image',3,'Site'),(4,'site.google_analytics_tracking_id','Google Analytics Tracking ID','','','text',4,'Site'),(5,'admin.bg_image','Admin Background Image','','','image',5,'Admin'),(6,'admin.title','Admin Title','Voyager','','text',1,'Admin'),(7,'admin.description','Admin Description','Welcome to Voyager. The Missing Admin for Laravel','','text',2,'Admin'),(8,'admin.loader','Admin Loader','','','image',3,'Admin'),(9,'admin.icon_image','Admin Icon Image','','','image',4,'Admin'),(10,'admin.google_analytics_client_id','Google Analytics Client ID (used for admin dashboard)','','','text',1,'Admin');
+/*!40000 ALTER TABLE `settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `translations`
+--
+
+LOCK TABLES `translations` WRITE;
+/*!40000 ALTER TABLE `translations` DISABLE KEYS */;
+INSERT INTO `translations` VALUES (1,'data_types','display_name_singular',5,'pt','Post','2018-11-27 10:21:33','2018-11-27 10:21:33'),(2,'data_types','display_name_singular',6,'pt','Página','2018-11-27 10:21:33','2018-11-27 10:21:33'),(3,'data_types','display_name_singular',1,'pt','Utilizador','2018-11-27 10:21:33','2018-11-27 10:21:33'),(4,'data_types','display_name_singular',4,'pt','Categoria','2018-11-27 10:21:33','2018-11-27 10:21:33'),(5,'data_types','display_name_singular',2,'pt','Menu','2018-11-27 10:21:33','2018-11-27 10:21:33'),(6,'data_types','display_name_singular',3,'pt','Função','2018-11-27 10:21:33','2018-11-27 10:21:33'),(7,'data_types','display_name_plural',5,'pt','Posts','2018-11-27 10:21:33','2018-11-27 10:21:33'),(8,'data_types','display_name_plural',6,'pt','Páginas','2018-11-27 10:21:33','2018-11-27 10:21:33'),(9,'data_types','display_name_plural',1,'pt','Utilizadores','2018-11-27 10:21:33','2018-11-27 10:21:33'),(10,'data_types','display_name_plural',4,'pt','Categorias','2018-11-27 10:21:33','2018-11-27 10:21:33'),(11,'data_types','display_name_plural',2,'pt','Menus','2018-11-27 10:21:33','2018-11-27 10:21:33'),(12,'data_types','display_name_plural',3,'pt','Funções','2018-11-27 10:21:33','2018-11-27 10:21:33'),(13,'categories','slug',1,'pt','categoria-1','2018-11-27 10:21:33','2018-11-27 10:21:33'),(14,'categories','name',1,'pt','Categoria 1','2018-11-27 10:21:33','2018-11-27 10:21:33'),(15,'categories','slug',2,'pt','categoria-2','2018-11-27 10:21:33','2018-11-27 10:21:33'),(16,'categories','name',2,'pt','Categoria 2','2018-11-27 10:21:33','2018-11-27 10:21:33'),(17,'pages','title',1,'pt','Olá Mundo','2018-11-27 10:21:33','2018-11-27 10:21:33'),(18,'pages','slug',1,'pt','ola-mundo','2018-11-27 10:21:33','2018-11-27 10:21:33'),(19,'pages','body',1,'pt','<p>Olá Mundo. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>\r\n<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>','2018-11-27 10:21:33','2018-11-27 10:21:33'),(20,'menu_items','title',1,'pt','Painel de Controle','2018-11-27 10:21:33','2018-11-27 10:21:33'),(21,'menu_items','title',2,'pt','Media','2018-11-27 10:21:33','2018-11-27 10:21:33'),(22,'menu_items','title',12,'pt','Publicações','2018-11-27 10:21:33','2018-11-27 10:21:33'),(23,'menu_items','title',3,'pt','Utilizadores','2018-11-27 10:21:33','2018-11-27 10:21:33'),(24,'menu_items','title',11,'pt','Categorias','2018-11-27 10:21:33','2018-11-27 10:21:33'),(25,'menu_items','title',13,'pt','Páginas','2018-11-27 10:21:33','2018-11-27 10:21:33'),(26,'menu_items','title',4,'pt','Funções','2018-11-27 10:21:33','2018-11-27 10:21:33'),(27,'menu_items','title',5,'pt','Ferramentas','2018-11-27 10:21:33','2018-11-27 10:21:33'),(28,'menu_items','title',6,'pt','Menus','2018-11-27 10:21:33','2018-11-27 10:21:33'),(29,'menu_items','title',7,'pt','Base de dados','2018-11-27 10:21:33','2018-11-27 10:21:33'),(30,'menu_items','title',10,'pt','Configurações','2018-11-27 10:21:33','2018-11-27 10:21:33');
+/*!40000 ALTER TABLE `translations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `user_roles`
+--
+
+LOCK TABLES `user_roles` WRITE;
+/*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,1,'Admin','admin@admin.com','users/default.png','$2y$10$LzrhF450hACHCbg.DMBwU.iajtwq0/G.OtMlVZ2krg0/CVMk07P12','dE2vF83z9ozs8KgCXrdRordo6pD2DPqczMYBqmHG1VonuTAkS1sgcHdd97f5','{\"locale\":\"zh_CN\"}','2018-11-27 10:21:33','2018-11-27 10:36:34');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -103,4 +163,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-19  1:59:30
+-- Dump completed on 2018-11-27  2:47:31
