@@ -9,40 +9,23 @@
 		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 post-content">
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<h1 class="text-center">
-						{{ $post->title }}
-					</h1>
+                    <div class="">
+                        <h1 class="">
+                            {{ $post->title }}
+                        </h1>
+                        <div class="article-meta">
+                            创建于 {{ $post->created_at->diffForHumans() }}  /  阅读量 {{ visits($post)->count() }} / 更新于 {{ $post->updated_at->diffForHumans() }}
+                        </div>
 
-					<div class="article-meta text-center">
-						{{ $post->created_at->diffForHumans() }}
-						.
-						<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-						{{ visits($post)->count() }} 阅读
-					</div>
+                        <div style="background-color:cornflowerblue;height:1px;border:none;box-shadow:0 1px 0px 1px #64959D;margin:10px 0px 10px 0;"></div>
+                    </div>
 
-					<div class="post-body">
+					<div class="">
 						@if($post->image)
+                            <img src="{{ $post->cover_url }}" class="img-thumbnail"/>
 						@endif
-						<hr>
-							{!! $post->body !!}
+                        {!! $post->body !!}
 					</div>
-
-					@can('update', $post)
-					<div class="operate">
-						<hr>
-						<a href="{{ route('posts.edit', $post->id) }}" class="btn btn-default btn-xs pull-left">
-							<i class="glyphicon glyphicon-edit" aria-hidden="true"></i> 编辑
-						</a>
-						<form action="{{ route('posts.destroy', $post->id) }}" method="post">
-							{{ csrf_field() }}
-							{{ method_field('DELETE') }}
-							<button class="btn btn-default btn-xs pull-left" style="margin-left: 6px;">
-								<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
-								删除
-							</button>
-						</form>
-					</div>
-					@endcan
 				</div>
 			</div>
 

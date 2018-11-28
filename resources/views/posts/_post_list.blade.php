@@ -2,8 +2,8 @@
 	<ul class="timeline media-list">
 		@foreach($posts as $post)
 		<li class="{{ $loop->index % 2 === 0 ? "" : "timeline-inverted" }}">
-			<div class="timeline-badge {{["success", "warning", "info", "danger"][$loop->index % 4]}}">
-				{{ $post->created_at->format("m-d") }}
+			<div class="timeline-badge {{["success", "warning", "info", "danger"][$post->category->id % 4]}}">
+                {{ $post->category->name }}
 			</div>
 			<div class="timeline-panel">
 				<div class="timeline-heading">

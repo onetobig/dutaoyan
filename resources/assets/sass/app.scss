@@ -157,7 +157,10 @@ body {
 
 @import "timeline";
 
-.topic-show-page {
+.posts-show-page {
+    .article-meta {
+        color: #adb1af;
+    }
   .panel {
     padding: 15px;
 
