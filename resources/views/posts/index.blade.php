@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', '首页')
+@section('title', $category->name ?? "首页" )
 @section('content')
 	<div class="row">
 		@include('posts._post_list', ['posts', $posts])

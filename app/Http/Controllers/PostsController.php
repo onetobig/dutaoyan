@@ -24,7 +24,7 @@ class PostsController extends Controller
         }
 
         $posts = $this->service->index($category);
-        return view('posts.index', ['posts' => $posts]);
+        return view('posts.index', ['posts' => $posts, 'category' => $category]);
     }
 
     public function show(Post $post)
