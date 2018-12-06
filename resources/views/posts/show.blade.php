@@ -21,9 +21,6 @@
                     </div>
 
 					<div class="">
-						@if($post->image)
-                            <img src="{{ $post->cover_url }}" class="img-thumbnail"/>
-						@endif
                         {!! $post->body !!}
 					</div>
 				</div>
@@ -39,6 +36,9 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 {{--					作者：{{ $post->user->name }}--}}
+					@if($post->image)
+						<img src="{{ $post->cover_url }}" class="img-thumbnail"/>
+					@endif
 				</div>
 				<hr>
 				<div class="media">

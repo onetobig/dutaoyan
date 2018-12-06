@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Post::observe(PostObserver::class);
+        \TCG\Voyager\Models\Post::observe(PostObserver::class);
         Carbon::setLocale("zh");
     }
 

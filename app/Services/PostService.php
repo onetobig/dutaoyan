@@ -22,4 +22,11 @@ class PostService
         }
         return $query->paginate(16);
     }
+
+    public function getFirstImage($body)
+    {
+        $urls = [];
+        preg_match('/<img.*?\"([^\"]*(jpg|bmp|jpeg|gif|png)).*?>/', $body, $urls);
+        return $urls[1] ?? "";
+    }
 }

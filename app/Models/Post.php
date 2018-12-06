@@ -30,9 +30,9 @@ class Post extends Model
         return \Storage::disk('public')->url($url);
     }
 
-    public function link()
+    public function link($params = [])
     {
-        return route('posts.show', ['post' => $this]);
+        return route('posts.show', array_merge([$this->id, $this->slug], $params));
     }
 
     public function category()

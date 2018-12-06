@@ -2,18 +2,18 @@
 
 namespace App\Observers;
 
-use App\Models\Post;
+use App\Handlers\SlugTranslateHandler;
+use App\Services\PostService;
+use TCG\Voyager\Models\Post;
 
 class PostObserver
 {
     public function saving(Post $post)
     {
-        if (!$post->sub) {
-            $post->sub = $post->title;
+        if (!$post->image) {
+            $service = new PostService();
+            $post->image = $service->getFirstImage($post->body);
         }
-        if (!$post->published_at) {
-            $post->published_at = now();
-        }
-        $post->excerpt = make_excerpt($post->content);
+        $post->slug = app(SlugTranslateHandler::class)->translate($post->title);
     }
 }
